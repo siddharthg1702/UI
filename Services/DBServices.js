@@ -103,6 +103,23 @@ export const Service = {
         });
     },
 
+    fetchProfileDetails(callback) {
+        DB.transaction((tx) => {
+            tx.executeSql('SELECT * FROM PROFILE WHERE loginStatus = 1', [], (tx, res) => {
+                console.log(res.rows.item(0));
+                let details = {
+                    userName: res.rows.item(0).Username,
+                    email: res.rows.item(0).email,
+                    profilePath: res.rows.item(0).localProfilePath,
+                }
+
+                console.log(details);
+
+                callback(details);
+            });
+        });
+    },
+
     test(){
         console.log("helo");
     },

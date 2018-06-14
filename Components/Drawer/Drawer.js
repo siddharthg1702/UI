@@ -9,8 +9,22 @@ export class Drawer extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      isLogout:false
+      isLogout:false,
+      userName : null,
+      email: null,
+      profilePath: null,
     }
+  }
+
+  componentWillMount() {
+    Service.fetchProfileDetails((data) => {
+
+      console.log(data);
+      this.setState({userName: data.userName});
+      this.setState({email: data.email});
+      this.setState({profilePath: data.profilePath});
+    });
+    console.log('Fetched Details');
   }
   
   render() {
@@ -27,9 +41,9 @@ export class Drawer extends React.Component {
               alignItems: "center",
               backgroundColor:"#0b97dd"
             }}>
-            <Thumbnail large source={{uri: "https://facebook.github.io/react-native/docs/assets/favicon.png"}} />            
-            <Text style={styles.userName}>User 1</Text>
-            <Text style={styles.email}>sample@sample.com</Text>
+            <Thumbnail large source={{uri :'file://'+ this.state.profilePath}} />            
+            <Text style={styles.userName}>{this.state.userName}</Text>
+            <Text style={styles.email}>{this.state.email}</Text>
           </ImageBackground>
           <List>
             <ListItem icon onPress={()=>this.props.navigation.navigate('Curriculum')}>

@@ -90,4 +90,5 @@ export default Routes = StackNavigator({
   Login:{screen:LoginScreen},
 },{
   initialRouteName: 'App',
+  headerMode:'none'
 });
