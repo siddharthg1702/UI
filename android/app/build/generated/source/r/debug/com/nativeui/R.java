@@ -1810,9 +1810,26 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f02003b;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f02003c;
         public static final int abc_textfield_search_material=0x7f02003d;
-        public static final int node_modules_reactnavigation_src_views_assets_backicon=0x7f02003e;
-        public static final int node_modules_reactnavigation_src_views_assets_backiconmask=0x7f02003f;
-        public static final int notification_template_icon_bg=0x7f020040;
+        public static final int components_activity_images_guesslogo=0x7f02003e;
+        public static final int components_activity_images_imagewithword=0x7f02003f;
+        public static final int components_activity_images_imagewithwordlogo=0x7f020040;
+        public static final int components_activity_images_matchimage=0x7f020041;
+        public static final int components_activity_images_matchlogo=0x7f020042;
+        public static final int components_activity_images_namelogo=0x7f020043;
+        public static final int components_imagescreen_img_image0=0x7f020044;
+        public static final int components_imagescreen_img_image1=0x7f020045;
+        public static final int components_imagescreen_img_image2=0x7f020046;
+        public static final int components_imagescreen_img_image3=0x7f020047;
+        public static final int components_imagescreen_img_image4=0x7f020048;
+        public static final int components_imagescreen_img_image5=0x7f020049;
+        public static final int images_image1=0x7f02004a;
+        public static final int images_image2=0x7f02004b;
+        public static final int images_image3=0x7f02004c;
+        public static final int images_image4=0x7f02004d;
+        public static final int images_image5=0x7f02004e;
+        public static final int node_modules_reactnavigation_src_views_assets_backicon=0x7f02004f;
+        public static final int node_modules_reactnavigation_src_views_assets_backiconmask=0x7f020050;
+        public static final int notification_template_icon_bg=0x7f020051;
     }
     public static final class id {
         public static final int action0=0x7f0d0058;

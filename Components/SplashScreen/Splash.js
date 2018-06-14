@@ -12,13 +12,7 @@ export class Splash extends React.Component {
       super(props)
   }
 
-  componentDidMount(){
-    setTimeout(()=>{
-        this.props.navigation.navigate("Navigation");
-    },500);  
-    
-  }
-
+  
   render() {
     return (
       <View style={styles.container}>

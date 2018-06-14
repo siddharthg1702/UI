@@ -1,36 +1,37 @@
 import React from 'react';
 import { StyleSheet,Image,ImageBackground} from 'react-native';
-import { Container,Separator, Content,Text,Left,Body, Icon,List, ListItem } from 'native-base';
+import { Container,Separator, Content,Text,Left,Body, Icon,List, ListItem, Thumbnail } from 'native-base';
+import {Service} from '../../Services/DBServices';
+import {Login} from '../LoginScreen/Login';
 
 export class Drawer extends React.Component {
 
-  
+  constructor(props){
+    super(props);
+    this.state={
+      isLogout:false
+    }
+  }
   
   render() {
+
+    
+
     return (
         <Container>
         <Content>
           <ImageBackground style={{
-              height: 120,
+              height: 160,
               alignSelf: "stretch",
               justifyContent: "center",
               alignItems: "center",
               backgroundColor:"#0b97dd"
             }}>
-            
-           
-            
-            <Text style={styles.text}>User 1</Text>
+            <Thumbnail large source={{uri: "https://facebook.github.io/react-native/docs/assets/favicon.png"}} />            
+            <Text style={styles.userName}>User 1</Text>
+            <Text style={styles.email}>sample@sample.com</Text>
           </ImageBackground>
           <List>
-            <ListItem icon onPress={()=>this.props.navigation.navigate('Home')}>
-              <Left>
-                <Icon name="home" />
-              </Left>
-              <Body>
-                <Text>Dashboard</Text>
-              </Body>
-            </ListItem>
             <ListItem icon onPress={()=>this.props.navigation.navigate('Curriculum')}>
               <Left>
                 <Icon name="book" />
@@ -47,19 +48,26 @@ export class Drawer extends React.Component {
                 <Text>Activity</Text>
               </Body>
             </ListItem>
+
+            <ListItem icon onPress={()=>this.props.navigation.navigate('Pair')}>
+              <Left>
+                <Icon name="link" />
+              </Left>
+              <Body>
+                <Text>Pair with Child</Text>
+              </Body>
+            </ListItem>
             
             <Separator>
               <Text>Account</Text>
             </Separator>
-            <ListItem icon>
-              <Left>
-                <Icon name="cog" />
-              </Left>
-              <Body>
-                <Text>Settings</Text>
-              </Body>
-            </ListItem>
-            <ListItem icon>
+            <ListItem icon onPress={() => {
+              Service.logout((response) => {
+              if(response == 'Success') {
+                console.log("response is "+response);
+                this.props.navigation.navigate('Login');
+              }
+            })}}>
               <Left>
                 <Icon name="log-out" />
               </Left>
@@ -67,35 +75,7 @@ export class Drawer extends React.Component {
                 <Text>Log out</Text>
               </Body>
             </ListItem>
-
-            <Separator>
-              <Text>About Us</Text>
-            </Separator>
-            <ListItem icon>
-              <Left>
-                <Icon name="help" />
-              </Left>
-              <Body>
-                <Text>Help & feedback</Text>
-              </Body>
-            </ListItem>
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-book" />
-              </Left>
-              <Body>
-                <Text>Parent guide</Text>
-              </Body>
-            </ListItem>
-            <ListItem icon>
-              <Left>
-                <Icon name="ios-information-circle-outline" />
-              </Left>
-              <Body>
-                <Text>About App</Text>
-              </Body>
-            </ListItem>
-         </List>
+          </List>
         </Content>
       </Container>
     );
@@ -111,7 +91,16 @@ const styles = StyleSheet.create({
   },
   text:{
       fontSize:25,
-      margin:50,
+      marginTop:50,
       fontWeight:'bold'
+  },
+  userName:{
+    fontSize:25,
+    marginTop:10,
+    fontWeight:'bold'
+  },
+  email:{
+    fontSize:15,
+    //margin:10,
   }
 });
